@@ -15,6 +15,10 @@ LINE = (
 
 
 def main() -> None:
+    if len(LINE) > 200:
+        raise ValueError(
+            f"One-liner exceeds the 200-character limit: {len(LINE)} chars"
+        )
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
     path = os.path.join(out_dir, "entry.txt")
